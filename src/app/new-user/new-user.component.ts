@@ -23,7 +23,6 @@ export class NewUserComponent implements OnInit {
     console.log({ userData });
     this.usersService.newUser(userData).subscribe(responseUserId => {
       this.responseUserId = responseUserId;
-      console.log({ thisResponseUserId: this.responseUserId });
     });
     this.userForm.reset();
   }
