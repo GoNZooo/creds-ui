@@ -1,18 +1,17 @@
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Username</th>
-      <th>Tokens</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{{user.id}}</td>
-      <td>{{user.name}}</td>
-      <td>{{user.username}}</td>
-      <td><a routerLink="/users/{{user.id}}/tokens">Tokens</a></td>
-    </tr>
-  </tbody>
-</table>
+<td><a [routerLink]="['/users', user.id]">{{user.id}}</a></td>
+<td>{{user.name}}</td>
+<td>{{user.username}}</td>
+<td><a [routerLink]="['/users', user.id, 'tokens']">Tokens</a></td>
+<td>
+  <button *ngIf="!this.addingToken" (click)="this.addingToken = true" class="mat-button mat-primary">+ Token</button>
+  <form *ngIf="addingToken" [formGroup]="scopeForm" (ngSubmit)="addToken(user.id, scopeForm.value.scope)">
+    <div>
+      <!--suppress HtmlFormInputWithoutLabel -->
+      <input id="scope" type="text" formControlName="scope">
+    </div>
+    <button hidden class="mat-primary" type="submit">Add</button>
+  </form>
+</td>
+<td>
+  <button (click)="deleteUser(user.id)" class="mat-button mat-accent">x</button>
+</td>

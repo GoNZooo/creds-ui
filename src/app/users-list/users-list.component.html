@@ -15,16 +15,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let user of users">
-    <td><a [routerLink]="['/users', user.id]">{{user.id}}</a></td>
-    <td>{{user.name}}</td>
-    <td>{{user.username}}</td>
-    <td><a [routerLink]="['/users', user.id, 'tokens']">Tokens</a></td>
-    <td>
-      <button class="mat-button mat-primary">+ Token</button>
-    </td>
-    <td>
-      <button (click)="deleteUser(user.id)" class="mat-button mat-accent">x</button>
-    </td>
+    <app-users-list-entry [user]="user"></app-users-list-entry>
   </tr>
   </tbody>
 </table>

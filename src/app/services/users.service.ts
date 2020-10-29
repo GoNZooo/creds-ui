@@ -45,6 +45,14 @@ export class UsersService implements OnDestroy {
     }));
   }
 
+  addToken(userId: string, scope: string): Observable<string> {
+    return this.http.post<string>("/creds/tokens", { scope, userId }).pipe(map((tokenId) => {
+      this.loadUsers();
+
+      return tokenId;
+    }));
+  }
+
   loadUsers(): void {
     this._subscriptions.remove(this._usersSubscription);
     this._usersSubscription = this.http.get<User[]>("/creds/users").subscribe(users => {

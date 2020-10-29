@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { User } from "../models/user.model";
+import { UsersService } from "../services/users.service";
+import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: "app-users-list-entry",
@@ -8,10 +10,24 @@ import { User } from "../models/user.model";
 })
 export class UsersListEntryComponent implements OnInit {
   @Input() user: User = {id: "", name: "", username: "", tokens: []};
+  addingToken = false;
+  scopeForm: FormGroup;
 
-  constructor() {
+  constructor(private usersService: UsersService, private formBuilder: FormBuilder) {
+    this.scopeForm = this.formBuilder.group({ scope: "severnatazvezda.com" });
   }
 
   ngOnInit(): void {
+  }
+
+  addToken(id: string, scope: string): void {
+    this.usersService.addToken(id, scope).subscribe(() => {
+      this.addingToken = false;
+      this.scopeForm.reset();
+    });
+  }
+
+  deleteUser(id: string): void {
+    this.usersService.deleteUser(id).subscribe(() => {});
   }
 }
