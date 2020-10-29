@@ -10,12 +10,14 @@ import { MatSortModule } from "@angular/material/sort";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { AuthorizationInterceptor } from "./interceptors/authorization.interceptor";
 import { UsersListComponent } from "./users-list/users-list.component";
-import { AppRoutingModule } from "./app.routing.module";
+import { Routing } from "./routing";
+import { UsersListEntryComponent } from "./users-list-entry/users-list-entry.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersListComponent,
+    UsersListEntryComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,7 @@ import { AppRoutingModule } from "./app.routing.module";
     MatPaginatorModule,
     MatSortModule,
     HttpClientModule,
-    AppRoutingModule,
+    Routing,
   ],
   providers: [UsersService, { provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true }],
   bootstrap: [AppComponent],

@@ -1,4 +1,22 @@
-nav #route-list {
+div.spacer {
+  flex-grow: 1;
+}
+
+#main-navbar {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+}
+
+#route-list {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-evenly;
+}
+
+#route-list li {
+  list-style: none;
+}
+
+#route-list li a {
+  text-decoration: none;
 }

@@ -1,8 +1,11 @@
 <!-- Toolbar -->
-<h1>Creds UI</h1>
-<nav>
+<nav id="main-navbar">
+  <h1>Creds UI</h1>
   <ul id="route-list">
+    <li><a routerLink="/" routerLinkActive="active">Home</a></li>
     <li><a routerLink="/users" routerLinkActive="active">Users</a></li>
+    <li><a routerLink="/users" routerLinkActive="active">Tokens</a></li>
   </ul>
+  <div class="spacer"></div>
 </nav>
 <router-outlet></router-outlet>

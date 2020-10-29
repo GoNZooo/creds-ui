@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { UsersListComponent } from "./users-list/users-list.component";
 
 const routes: Route[] = [
+  { path: "", children: [] },
   { path: "users", component: UsersListComponent },
 ];
 
@@ -10,6 +11,6 @@ const routes: Route[] = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {
+export class Routing {
 
 }
