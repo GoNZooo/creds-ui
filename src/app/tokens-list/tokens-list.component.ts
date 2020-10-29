@@ -14,4 +14,7 @@ export class TokensListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  deleteToken(id: string): void {
+    this.tokensService.deleteToken(id).subscribe(() => {});
+  }
 }
