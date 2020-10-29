@@ -1,0 +1,17 @@
+<table *ngIf="(tokensService.tokens | async) as tokens">
+  <caption>Tokens</caption>
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Scope</th>
+    <th>UserId</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let token of tokens">
+    <td>{{token.id}}</td>
+    <td>{{token.scope}}</td>
+    <td><a [routerLink]="['/users', token.userId]">{{token.userId}}</a></td>
+  </tr>
+  </tbody>
+</table>

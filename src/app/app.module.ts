@@ -14,6 +14,7 @@ import { Routing } from "./routing";
 import { UsersListEntryComponent } from "./users-list-entry/users-list-entry.component";
 import { UserComponent } from "./user/user.component";
 import { UserTokensComponent } from "./user-tokens/user-tokens.component";
+import { TokensListComponent } from "./tokens-list/tokens-list.component";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { UserTokensComponent } from "./user-tokens/user-tokens.component";
     UsersListEntryComponent,
     UserComponent,
     UserTokensComponent,
+    TokensListComponent,
   ],
   imports: [
     BrowserModule,
