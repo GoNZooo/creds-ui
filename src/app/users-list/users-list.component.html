@@ -14,8 +14,8 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of users">
-    <app-users-list-entry [user]="user"></app-users-list-entry>
-  </tr>
+  <ng-container *ngFor="let user of users">
+    <tr app-user-list-entry [user]="user"></tr>
+  </ng-container>
   </tbody>
 </table>

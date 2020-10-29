@@ -4,9 +4,9 @@ import { UsersService } from "../services/users.service";
 import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
-  selector: "app-users-list-entry",
+  selector: "[app-user-list-entry]",
   templateUrl: "./users-list-entry.component.html",
-  styleUrls: ["./users-list-entry.component.css"],
+  styleUrls: ["./users-list-entry.component.css"]
 })
 export class UsersListEntryComponent implements OnInit {
   @Input() user: User = {id: "", name: "", username: "", tokens: []};

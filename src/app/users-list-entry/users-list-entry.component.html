@@ -3,7 +3,8 @@
 <td>{{user.username}}</td>
 <td><a [routerLink]="['/users', user.id, 'tokens']">Tokens</a></td>
 <td>
-  <button *ngIf="!this.addingToken" (click)="this.addingToken = true" class="mat-button mat-primary">+ Token</button>
+  <button *ngIf="!this.addingToken" (click)="this.addingToken = true" class="mat-button mat-primary">+ Token
+  </button>
   <form *ngIf="addingToken" [formGroup]="scopeForm" (ngSubmit)="addToken(user.id, scopeForm.value.scope)">
     <div>
       <!--suppress HtmlFormInputWithoutLabel -->
