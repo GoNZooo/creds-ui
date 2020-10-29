@@ -1,0 +1,4 @@
+nav #route-list {
+  display: flex;
+  flex-direction: row;
+}

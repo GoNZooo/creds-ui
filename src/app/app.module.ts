@@ -7,15 +7,14 @@ import { UsersService } from "./services/users.service";
 import { MatTableModule } from "@angular/material/table";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
-import { TokenInputComponent } from "./token-input/token-input.component";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { AuthorizationInterceptor } from "./interceptors/authorization.interceptor";
 import { UsersListComponent } from "./users-list/users-list.component";
+import { AppRoutingModule } from "./app.routing.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    TokenInputComponent,
     UsersListComponent,
   ],
   imports: [
@@ -25,6 +24,7 @@ import { UsersListComponent } from "./users-list/users-list.component";
     MatPaginatorModule,
     MatSortModule,
     HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [UsersService, { provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true }],
   bootstrap: [AppComponent],

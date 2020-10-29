@@ -1,0 +1,4 @@
+<h2>Users</h2>
+<ul id="users-list" *ngIf="(usersService.users | async) as users">
+  <li *ngFor="let user of users">{{user | json}}</li>
+</ul>

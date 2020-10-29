@@ -1,5 +1,8 @@
 <!-- Toolbar -->
-<div class="content" role="main">
-  <app-token-input></app-token-input>
-  <app-users-list *ngIf="configuration.token | async"></app-users-list>
-</div>
+<h1>Creds UI</h1>
+<nav>
+  <ul id="route-list">
+    <li><a routerLink="/users" routerLinkActive="active">Users</a></li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
