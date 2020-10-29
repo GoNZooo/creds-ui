@@ -1,0 +1,18 @@
+<table *ngIf="tokens !== null">
+  <caption>Tokens</caption>
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Scope</th>
+    <th>UserId</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let token of tokens">
+    <td>{{token.id}}</td>
+    <td>{{token.scope}}</td>
+    <td>{{token.userId}}</td>
+  </tr>
+  </tbody>
+</table>

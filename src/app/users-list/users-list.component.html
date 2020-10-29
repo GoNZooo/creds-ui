@@ -1,6 +1,19 @@
-<h2>Users</h2>
-<ul id="users-list" *ngIf="(usersService.users | async) as users">
-  <li *ngFor="let user of users">
-    <app-users-list-entry [user]="user"></app-users-list-entry>
-  </li>
-</ul>
+<table *ngIf="(usersService.users | async) as users">
+  <caption>Users</caption>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Tokens</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users">
+    <td><a [routerLink]="['/users', user.id]">{{user.id}}</a></td>
+    <td>{{user.name}}</td>
+    <td>{{user.username}}</td>
+    <td><a [routerLink]="['/users', user.id, 'tokens']">Tokens</a></td>
+  </tr>
+  </tbody>
+</table>

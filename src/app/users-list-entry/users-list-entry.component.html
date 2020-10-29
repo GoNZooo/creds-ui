@@ -1,11 +1,18 @@
-<ul>
-  <li>{{user.id}}</li>
-  <li>{{user.name}}</li>
-  <li>{{user.username}}</li>
-  <li>
-    <ul *ngFor="let token of user.tokens">
-      <li>{{token.id}}</li>
-      <li>{{token.scope}}</li>
-    </ul>
-  </li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Tokens</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.username}}</td>
+      <td><a routerLink="/users/{{user.id}}/tokens">Tokens</a></td>
+    </tr>
+  </tbody>
+</table>

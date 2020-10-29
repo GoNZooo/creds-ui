@@ -12,12 +12,16 @@ import { AuthorizationInterceptor } from "./interceptors/authorization.intercept
 import { UsersListComponent } from "./users-list/users-list.component";
 import { Routing } from "./routing";
 import { UsersListEntryComponent } from "./users-list-entry/users-list-entry.component";
+import { UserComponent } from "./user/user.component";
+import { UserTokensComponent } from "./user-tokens/user-tokens.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersListComponent,
     UsersListEntryComponent,
+    UserComponent,
+    UserTokensComponent,
   ],
   imports: [
     BrowserModule,
