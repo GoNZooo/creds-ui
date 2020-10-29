@@ -15,6 +15,9 @@ import { UsersListEntryComponent } from "./users-list-entry/users-list-entry.com
 import { UserComponent } from "./user/user.component";
 import { UserTokensComponent } from "./user-tokens/user-tokens.component";
 import { TokensListComponent } from "./tokens-list/tokens-list.component";
+import { NewUserComponent } from "./new-user/new-user.component";
+import { FormBuilder, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { CopyTextComponent } from "./copy-text/copy-text.component";
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import { TokensListComponent } from "./tokens-list/tokens-list.component";
     UserComponent,
     UserTokensComponent,
     TokensListComponent,
+    NewUserComponent,
+    CopyTextComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,8 +38,10 @@ import { TokensListComponent } from "./tokens-list/tokens-list.component";
     MatSortModule,
     HttpClientModule,
     Routing,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [UsersService, { provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true }],
+  providers: [UsersService, { provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true }, FormBuilder],
   bootstrap: [AppComponent],
 })
 export class AppModule {
