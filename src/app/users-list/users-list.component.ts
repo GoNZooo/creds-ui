@@ -8,9 +8,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./users-list.component.css"],
 })
 export class UsersListComponent implements OnInit {
-  constructor(public usersService: UsersService, public router: Router) {
-  }
+  constructor(public usersService: UsersService, public router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

@@ -16,12 +16,11 @@ export class NewUserComponent implements OnInit {
     this.userForm = this.formBuilder.group({ name: "", username: "" });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit(userData: UserCreationData): void {
     console.log({ userData });
-    this.usersService.newUser(userData).subscribe(responseUserId => {
+    this.usersService.newUser(userData).subscribe((responseUserId) => {
       this.responseUserId = responseUserId;
     });
     this.userForm.reset();

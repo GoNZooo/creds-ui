@@ -7,6 +7,5 @@ import { BehaviorSubject } from "rxjs";
 export class ConfigurationService {
   token: BehaviorSubject<string> = new BehaviorSubject<string>("");
 
-  constructor() {
-  }
+  constructor() {}
 }

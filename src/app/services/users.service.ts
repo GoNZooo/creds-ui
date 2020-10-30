@@ -17,12 +17,13 @@ export class UsersService implements OnDestroy {
   private _usersSubscription = new Subscription();
 
   constructor(private configuration: ConfigurationService, private http: HttpClient) {
-    this._subscriptions.add(this.configuration.token.subscribe(token => {
-      this._token = token;
+    this._subscriptions.add(
+      this.configuration.token.subscribe((token) => {
+        this._token = token;
 
-      this.loadUsers();
-    }));
-
+        this.loadUsers();
+      })
+    );
   }
 
   ngOnDestroy(): void {
@@ -30,35 +31,46 @@ export class UsersService implements OnDestroy {
   }
 
   newUser(userData: UserCreationData): Observable<string> {
-    return this.http.post<string>("/creds/users", { adminToken: this._token, ...userData }).pipe(map((id) => {
-      this.loadUsers();
+    return this.http
+      .post<string>("/creds/users", { adminToken: this._token, ...userData })
+      .pipe(
+        map((id) => {
+          this.loadUsers();
 
-      return id;
-    }));
+          return id;
+        })
+      );
   }
 
   deleteUser(id: string): Observable<void> {
-    return this.http.request<void>("delete", "/creds/users", { body: id }).pipe(map(() => {
-      this.loadUsers();
+    return this.http
+      .request<void>("delete", "/creds/users", { body: id })
+      .pipe(
+        map(() => {
+          this.loadUsers();
 
-      return;
-    }));
+          return;
+        })
+      );
   }
 
   addToken(userId: string, scope: string): Observable<string> {
-    return this.http.post<string>("/creds/tokens", { scope, userId }).pipe(map((tokenId) => {
-      this.loadUsers();
+    return this.http
+      .post<string>("/creds/tokens", { scope, userId })
+      .pipe(
+        map((tokenId) => {
+          this.loadUsers();
 
-      return tokenId;
-    }));
+          return tokenId;
+        })
+      );
   }
 
   loadUsers(): void {
     this._subscriptions.remove(this._usersSubscription);
-    this._usersSubscription = this.http.get<User[]>("/creds/users").subscribe(users => {
-        this.users.next(users);
-      },
-    );
+    this._usersSubscription = this.http.get<User[]>("/creds/users").subscribe((users) => {
+      this.users.next(users);
+    });
     this._subscriptions.add(this._usersSubscription);
   }
 }

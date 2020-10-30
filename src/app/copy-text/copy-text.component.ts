@@ -10,11 +10,9 @@ export class CopyTextComponent implements OnInit, OnDestroy {
   @Input() text = "";
   private _subscriptions = new Subscription();
 
-  constructor() {
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
     this._subscriptions.unsubscribe();
@@ -22,8 +20,10 @@ export class CopyTextComponent implements OnInit, OnDestroy {
 
   copyText(): void {
     const promise = navigator.clipboard.writeText(this.text);
-    this._subscriptions.add(from(promise).subscribe(() => {
-      console.log("Copied!");
-    }));
+    this._subscriptions.add(
+      from(promise).subscribe(() => {
+        console.log("Copied!");
+      })
+    );
   }
 }

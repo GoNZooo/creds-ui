@@ -13,13 +13,13 @@ export class UserComponent implements OnInit {
   user: User | null = null;
 
   constructor(private route: ActivatedRoute, usersService: UsersService) {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       if (params.id !== undefined) {
         this.id = params.id;
       }
     });
     if (this.id !== "") {
-      usersService.users.subscribe(users => {
+      usersService.users.subscribe((users) => {
         const found = users.find((u) => u.id === this.id);
         if (found !== undefined) {
           this.user = found;
@@ -28,6 +28,5 @@ export class UserComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }

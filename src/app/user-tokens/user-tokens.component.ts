@@ -14,27 +14,28 @@ export class UserTokensComponent implements OnInit, OnDestroy {
   tokens: Token[] | null = null;
   private _subscriptions = new Subscription();
 
-  constructor(private route: ActivatedRoute, private usersService: UsersService) {
-  }
+  constructor(private route: ActivatedRoute, private usersService: UsersService) {}
 
   ngOnInit(): void {
-    this._subscriptions.add(this.route.params.subscribe(parameters => {
-      if (parameters.id !== undefined) {
-        this.id = parameters.id;
-      }
-    }));
+    this._subscriptions.add(
+      this.route.params.subscribe((parameters) => {
+        if (parameters.id !== undefined) {
+          this.id = parameters.id;
+        }
+      })
+    );
 
     if (this.id !== "") {
-      this._subscriptions.add(this.usersService.users.subscribe(users => {
-        const foundUser = users.find(({id}) => id === this.id);
-        if (foundUser !== undefined) {
-          this.tokens = foundUser.tokens;
-        }
-      }));
+      this._subscriptions.add(
+        this.usersService.users.subscribe((users) => {
+          const foundUser = users.find(({ id }) => id === this.id);
+          if (foundUser !== undefined) {
+            this.tokens = foundUser.tokens;
+          }
+        })
+      );
     }
   }
 
-  ngOnDestroy(): void {
-  }
-
+  ngOnDestroy(): void {}
 }

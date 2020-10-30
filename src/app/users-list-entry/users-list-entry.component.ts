@@ -6,10 +6,10 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 @Component({
   selector: "[app-user-list-entry]",
   templateUrl: "./users-list-entry.component.html",
-  styleUrls: ["./users-list-entry.component.css"]
+  styleUrls: ["./users-list-entry.component.css"],
 })
 export class UsersListEntryComponent implements OnInit {
-  @Input() user: User = {id: "", name: "", username: "", tokens: []};
+  @Input() user: User = { id: "", name: "", username: "", tokens: [] };
   addingToken = false;
   scopeForm: FormGroup;
 
@@ -17,8 +17,7 @@ export class UsersListEntryComponent implements OnInit {
     this.scopeForm = this.formBuilder.group({ scope: "severnatazvezda.com" });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   addToken(id: string, scope: string): void {
     this.usersService.addToken(id, scope).subscribe(() => {

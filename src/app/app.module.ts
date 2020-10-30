@@ -41,8 +41,11 @@ import { CopyTextComponent } from "./copy-text/copy-text.component";
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [UsersService, { provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true }, FormBuilder],
+  providers: [
+    UsersService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true },
+    FormBuilder,
+  ],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

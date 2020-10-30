@@ -9,8 +9,7 @@ describe("CopyTextComponent", () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CopyTextComponent],
-    })
-      .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

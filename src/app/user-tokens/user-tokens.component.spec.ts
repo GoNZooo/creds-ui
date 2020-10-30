@@ -9,8 +9,7 @@ describe("UserTokensComponent", () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [UserTokensComponent],
-    })
-      .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

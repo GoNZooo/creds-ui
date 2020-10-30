@@ -9,12 +9,14 @@ export class AuthorizationInterceptor implements HttpInterceptor, OnDestroy {
   private _subscriptions = new Subscription();
 
   constructor(private configuration: ConfigurationService) {
-    this._subscriptions.add(configuration.token.subscribe(token => this._token = token));
+    this._subscriptions.add(configuration.token.subscribe((token) => (this._token = token)));
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const clone = req.clone({
-      headers: req.headers.set("Authorization", `Bearer ${this._token}`).set("Content-type", "application/json"),
+      headers: req.headers
+        .set("Authorization", `Bearer ${this._token}`)
+        .set("Content-type", "application/json"),
       withCredentials: true,
     });
 

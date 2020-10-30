@@ -7,12 +7,9 @@ import { TokensService } from "../services/tokens.service";
   styleUrls: ["./tokens-list.component.css"],
 })
 export class TokensListComponent implements OnInit {
+  constructor(public tokensService: TokensService) {}
 
-  constructor(public tokensService: TokensService) {
-  }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   deleteToken(id: string): void {
     this.tokensService.deleteToken(id).subscribe(() => {});

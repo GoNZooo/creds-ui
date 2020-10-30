@@ -19,6 +19,4 @@ const routes: Route[] = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class Routing {
-
-}
+export class Routing {}
