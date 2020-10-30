@@ -34,9 +34,6 @@ export class TokensService implements OnDestroy {
       .subscribe((tokens) => {
         this.tokens.next(tokens);
       });
-    // this._tokensSubscription = this.http.get<Token[]>("/creds/tokens").subscribe((tokens) => {
-    //   this.tokens.next(tokens);
-    // });
     this._subscriptions.add(this._tokensSubscription);
   }
 
