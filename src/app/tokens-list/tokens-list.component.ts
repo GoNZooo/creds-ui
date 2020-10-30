@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { TokensService } from "../services/tokens.service";
+import { UsersService } from "../services/users.service";
 
 @Component({
   selector: "app-tokens-list",
@@ -7,11 +7,11 @@ import { TokensService } from "../services/tokens.service";
   styleUrls: ["./tokens-list.component.css"],
 })
 export class TokensListComponent implements OnInit {
-  constructor(public tokensService: TokensService) {}
+  constructor(public usersService: UsersService) {}
 
   ngOnInit(): void {}
 
   deleteToken(id: string): void {
-    this.tokensService.deleteToken(id).subscribe(() => {});
+    this.usersService.deleteToken(id).subscribe(() => {});
   }
 }
