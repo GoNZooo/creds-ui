@@ -1,26 +1,30 @@
-<td><a [routerLink]="['/users', user.id]">{{user.id}}</a></td>
-<td><span>{{user.name}}</span></td>
+<!--suppress HtmlFormInputWithoutLabel -->
+<td>
+  <a [routerLink]="['/users', user.id]">{{user.id}}</a>
+</td>
+<td>{{user.name}}</td>
 <td>{{user.username}}</td>
-<td><a mat-flat-button [routerLink]="['/users', user.id, 'tokens']">Tokens</a>
+<td>
+  <a mat-flat-button [routerLink]="['/users', user.id, 'tokens']">Tokens</a>
 </td>
 <td>
-  <button *ngIf="!addingToken" (click)="setAddingToken()"
-          matTooltip="Add a token" mat-raised-button color="primary"
-  >
+  <button *ngIf="!addingToken" matTooltip="Add a token" mat-raised-button color="primary"
+          (click)="setAddingToken()">
     <mat-icon>add</mat-icon>
   </button>
-  <form *ngIf="addingToken" [formGroup]="scopeForm"
-        (ngSubmit)="addToken(user.id, scopeForm.value.scope)">
+  <form *ngIf="addingToken" (ngSubmit)="addToken(user.id, scope)">
     <mat-form-field>
-      <!--suppress HtmlFormInputWithoutLabel -->
-      <input matInput (blur)="cancelAddingToken()"
-             autofocus id="scope" type="text" formControlName="scope">
+      <mat-label>Scope</mat-label>
+      <input matInput autofocus id="scope" type="text" required
+             (blur)="cancelAddingToken()"
+             [formControl]="scope">
+      <mat-error *ngIf="scope.invalid">Scope is required</mat-error>
     </mat-form-field>
     <button hidden type="submit">Add</button>
   </form>
 </td>
 <td>
-  <button mat-raised-button (click)="deleteUser(user.id)" color="warn">
+  <button mat-raised-button color="warn" (click)="deleteUser(user.id)">
     <mat-icon>delete</mat-icon>
   </button>
 </td>
