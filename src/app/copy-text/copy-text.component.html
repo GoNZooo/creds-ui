@@ -1,1 +1,1 @@
-<span (click)="copyText()">{{text}}</span>
+<span [cdkCopyToClipboard]="text" matTooltip="Click to copy">{{text}}</span>

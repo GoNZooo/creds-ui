@@ -18,6 +18,9 @@ import { TokensListComponent } from "./tokens-list/tokens-list.component";
 import { NewUserComponent } from "./new-user/new-user.component";
 import { FormBuilder, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CopyTextComponent } from "./copy-text/copy-text.component";
+import { CommonModule } from "@angular/common";
+import { MatTooltipModule } from "@angular/material/tooltip";
+import { ClipboardModule } from "@angular/cdk/clipboard";
 
 @NgModule({
   declarations: [
@@ -31,6 +34,7 @@ import { CopyTextComponent } from "./copy-text/copy-text.component";
     CopyTextComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatTableModule,
@@ -40,6 +44,8 @@ import { CopyTextComponent } from "./copy-text/copy-text.component";
     Routing,
     FormsModule,
     ReactiveFormsModule,
+    MatTooltipModule,
+    ClipboardModule,
   ],
   providers: [
     UsersService,

@@ -82,6 +82,7 @@ export class UsersService implements OnDestroy {
       const tokens = getAllTokens(users);
 
       this.users.next(users);
+      console.log({ tokens });
       this.tokens.next(tokens);
     });
     this._subscriptions.add(this._usersSubscription);
