@@ -1,0 +1,15 @@
+@import "~@angular/material/theming";
+
+@include mat-core();
+
+$creds-app-primary: mat-palette($mat-indigo);
+$creds-app-accent: mat-palette($mat-pink);
+
+$creds-app-theme: mat-dark-theme((
+  color: (
+    primary: $creds-app-primary,
+    accent: $creds-app-accent,
+  )
+));
+
+@include angular-material-theme($creds-app-theme);
