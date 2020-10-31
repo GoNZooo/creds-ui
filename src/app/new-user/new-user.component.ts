@@ -19,7 +19,6 @@ export class NewUserComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(userData: UserCreationData): void {
-    console.log({ userData });
     this.usersService.newUser(userData).subscribe((responseUserId) => {
       this.responseUserId = responseUserId;
     });
