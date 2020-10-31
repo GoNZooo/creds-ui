@@ -1,18 +1,26 @@
 <td><a [routerLink]="['/users', user.id]">{{user.id}}</a></td>
-<td>{{user.name}}</td>
+<td><span>{{user.name}}</span></td>
 <td>{{user.username}}</td>
-<td><a [routerLink]="['/users', user.id, 'tokens']">Tokens</a></td>
+<td><a mat-flat-button [routerLink]="['/users', user.id, 'tokens']">Tokens</a>
+</td>
 <td>
-  <button *ngIf="!this.addingToken" (click)="this.addingToken = true" class="mat-button mat-primary">+ Token
+  <button *ngIf="!addingToken" (click)="setAddingToken()"
+          matTooltip="Add a token" mat-raised-button color="primary"
+  >
+    <mat-icon>add</mat-icon>
   </button>
-  <form *ngIf="addingToken" [formGroup]="scopeForm" (ngSubmit)="addToken(user.id, scopeForm.value.scope)">
-    <div>
+  <form *ngIf="addingToken" [formGroup]="scopeForm"
+        (ngSubmit)="addToken(user.id, scopeForm.value.scope)">
+    <mat-form-field>
       <!--suppress HtmlFormInputWithoutLabel -->
-      <input id="scope" type="text" formControlName="scope">
-    </div>
-    <button hidden class="mat-primary" type="submit">Add</button>
+      <input matInput (blur)="cancelAddingToken()"
+             autofocus id="scope" type="text" formControlName="scope">
+    </mat-form-field>
+    <button hidden type="submit">Add</button>
   </form>
 </td>
 <td>
-  <button (click)="deleteUser(user.id)" class="mat-button mat-accent">x</button>
+  <button mat-raised-button (click)="deleteUser(user.id)" color="warn">
+    <mat-icon>delete</mat-icon>
+  </button>
 </td>

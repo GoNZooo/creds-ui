@@ -21,6 +21,11 @@ import { CopyTextComponent } from "./copy-text/copy-text.component";
 import { CommonModule } from "@angular/common";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { ClipboardModule } from "@angular/cdk/clipboard";
+import { MatButtonModule } from "@angular/material/button";
+import { MatLineModule, MatRippleModule } from "@angular/material/core";
+import { MatIconModule } from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
+import { MatToolbarModule } from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -46,6 +51,12 @@ import { ClipboardModule } from "@angular/cdk/clipboard";
     ReactiveFormsModule,
     MatTooltipModule,
     ClipboardModule,
+    MatButtonModule,
+    MatRippleModule,
+    MatIconModule,
+    MatInputModule,
+    MatLineModule,
+    MatToolbarModule,
   ],
   providers: [
     UsersService,

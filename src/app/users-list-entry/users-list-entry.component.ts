@@ -29,4 +29,12 @@ export class UsersListEntryComponent implements OnInit {
   deleteUser(id: string): void {
     this.usersService.deleteUser(id).subscribe(() => {});
   }
+
+  cancelAddingToken(): void {
+    this.addingToken = false;
+  }
+
+  setAddingToken(): void {
+    this.addingToken = true;
+  }
 }

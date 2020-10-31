@@ -1,21 +1,26 @@
-<td>
-  <button (click)="this.router.navigate(['/users/new'])" class="mat-button mat-primary">+ User</button>
-</td>
-<table *ngIf="(usersService.users | async) as users">
-  <caption>Users</caption>
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Username</th>
-    <th>Tokens</th>
-    <th></th>
-    <th></th>
-  </tr>
-  </thead>
-  <tbody>
-  <ng-container *ngFor="let user of users">
-    <tr app-user-list-entry [user]="user"></tr>
-  </ng-container>
-  </tbody>
-</table>
+<div role="main">
+  <div>
+    <button matTooltip="Add a user" mat-flat-button color="primary" (click)="this.router.navigate(['/users/new'])"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  <table *ngIf="(usersService.users | async) as users">
+    <caption>Users</caption>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Tokens</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let user of users">
+      <tr app-user-list-entry [user]="user"></tr>
+    </ng-container>
+    </tbody>
+  </table>
+</div>
