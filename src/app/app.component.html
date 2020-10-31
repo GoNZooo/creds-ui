@@ -1,11 +1,16 @@
-<!-- Toolbar -->
-<nav id="main-navbar">
-  <h1>Creds UI</h1>
-  <ul id="route-list">
-    <li><a routerLink="/" routerLinkActive="active">Home</a></li>
-    <li><a routerLink="/users" routerLinkActive="active">Users</a></li>
-    <li><a routerLink="/tokens" routerLinkActive="active">Tokens</a></li>
-  </ul>
-  <div class="spacer"></div>
-</nav>
+<mat-toolbar color="primary" >
+  <span>Creds</span>
+  <nav id="main-navbar">
+    <ul id="route-list">
+      <li>
+        <a mat-flat-button routerLink="/" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
+          <mat-icon>home</mat-icon>
+        </a>
+      </li>
+      <li><a mat-flat-button routerLink="/users" routerLinkActive="active">Users</a></li>
+      <li><a mat-flat-button routerLink="/tokens" routerLinkActive="active">Tokens</a></li>
+    </ul>
+    <div class="spacer"></div>
+  </nav>
+</mat-toolbar>
 <router-outlet></router-outlet>

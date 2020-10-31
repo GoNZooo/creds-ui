@@ -1,0 +1,30 @@
+@import "~@angular/material/theming";
+
+div.spacer {
+  flex-grow: 1;
+}
+
+#main-navbar {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+
+  #route-list {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-evenly;
+
+    li {
+      list-style: none;
+
+      a {
+        color: mat-color($mat-grey, 400);
+
+        &.active {
+          color: mat-color($mat-grey, 50);
+        }
+      }
+
+    }
+  }
+}
