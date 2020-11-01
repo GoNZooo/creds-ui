@@ -25,8 +25,8 @@
              formControlName="scope"
              [pattern]="scopePattern"
              (blur)="cancelAddingToken()">
-      <div class="mat-error mat-small" *ngIf="!scopeForm.valid">Scope is required and cannot contain
-        spaces
+      <div class="mat-error mat-small" *ngIf="!scopeForm.valid">
+        Scope is required and cannot contain spaces
       </div>
     </mat-form-field>
     <button hidden type="submit">Add</button>
