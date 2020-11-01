@@ -35,12 +35,12 @@ export class UsersListEntryComponent implements OnInit {
     }
   }
 
-  maybeDeleteUser(id: string): void {
-    const dialogReference = this.dialog.open(DeleteUserConfirmationComponent);
+  maybeDeleteUser(user: User): void {
+    const dialogReference = this.dialog.open(DeleteUserConfirmationComponent, { data: user });
 
     dialogReference.afterClosed().subscribe((choice: unknown) => {
       if (typeof choice === "boolean" && choice) {
-        this.deleteUser(id);
+        this.deleteUser(user.id);
       }
     });
   }
