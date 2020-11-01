@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from "@angular/core";
 import { User } from "../models/user.model";
 import { UsersService } from "../services/users.service";
 import { FormBuilder, Validators } from "@angular/forms";
+import { MatDialog } from "@angular/material/dialog";
+import { DeleteUserConfirmationComponent } from "../delete-user-confirmation/delete-user-confirmation.component";
 
 @Component({
   selector: "[app-user-list-entry]",
@@ -17,7 +19,11 @@ export class UsersListEntryComponent implements OnInit {
     scope: ["severnatazvezda.com", [Validators.required, Validators.pattern(this.scopePattern)]],
   });
 
-  constructor(private usersService: UsersService, private formBuilder: FormBuilder) {}
+  constructor(
+    private usersService: UsersService,
+    private formBuilder: FormBuilder,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {}
 
@@ -27,6 +33,16 @@ export class UsersListEntryComponent implements OnInit {
         this.addingToken = false;
       });
     }
+  }
+
+  maybeDeleteUser(id: string): void {
+    const dialogReference = this.dialog.open(DeleteUserConfirmationComponent);
+
+    dialogReference.afterClosed().subscribe((choice: unknown) => {
+      if (typeof choice === "boolean" && choice) {
+        this.deleteUser(id);
+      }
+    });
   }
 
   deleteUser(id: string): void {

@@ -26,6 +26,8 @@ import { MatLineModule, MatRippleModule } from "@angular/material/core";
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import { DeleteUserConfirmationComponent } from "./delete-user-confirmation/delete-user-confirmation.component";
+import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
     TokensListComponent,
     NewUserComponent,
     CopyTextComponent,
+    DeleteUserConfirmationComponent,
   ],
   imports: [
     CommonModule,
@@ -57,6 +60,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
     MatInputModule,
     MatLineModule,
     MatToolbarModule,
+    MatDialogModule,
   ],
   providers: [
     UsersService,
