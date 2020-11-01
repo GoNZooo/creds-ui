@@ -12,13 +12,17 @@
           (click)="setAddingToken()">
     <mat-icon>add</mat-icon>
   </button>
-  <form *ngIf="addingToken" (ngSubmit)="addToken(user.id, scope)">
+  <form *ngIf="addingToken" [formGroup]="scopeForm"
+        (ngSubmit)="addToken(user.id)">
     <mat-form-field>
       <mat-label>Scope</mat-label>
-      <input matInput autofocus id="scope" type="text" required
-             (blur)="cancelAddingToken()"
-             [formControl]="scope">
-      <mat-error *ngIf="scope.invalid">Scope is required</mat-error>
+      <input matInput autofocus id="scope" name="scope" class="form-control" type="text" required
+             formControlName="scope"
+             [pattern]="scopePattern"
+             (blur)="cancelAddingToken()">
+      <div class="mat-error mat-small" *ngIf="!scopeForm.valid">Scope is required and cannot contain
+        spaces
+      </div>
     </mat-form-field>
     <button hidden type="submit">Add</button>
   </form>
