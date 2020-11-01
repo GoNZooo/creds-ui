@@ -5,10 +5,15 @@
 <td>{{user.name}}</td>
 <td>{{user.username}}</td>
 <td>
-  <a mat-flat-button [routerLink]="['/users', user.id, 'tokens']">Tokens</a>
+  <a mat-flat-button matTooltip="{{'Tokens: ' + tokenCount()}}"
+     [disabled]="user.tokens === null"
+     [routerLink]="['/users', user.id, 'tokens']">
+    TOKENS
+  </a>
 </td>
 <td>
-  <button mat-mini-fab *ngIf="!addingToken" matTooltip="Add a token" color="primary"
+  <button mat-mini-fab *ngIf="!addingToken"
+          matTooltip="Add a token" color="primary" aria-label="Add a token"
           (click)="setAddingToken()">
     <mat-icon>add</mat-icon>
   </button>
@@ -28,7 +33,10 @@
   </form>
 </td>
 <td>
-  <button mat-mini-fab color="warn" (click)="deleteUser(user.id)">
+  <button mat-mini-fab color="warn"
+          matTooltip="Delete user"
+          aria-label="Delete user"
+          (click)="deleteUser(user.id)">
     <mat-icon>delete</mat-icon>
   </button>
 </td>

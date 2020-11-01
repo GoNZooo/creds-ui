@@ -40,4 +40,8 @@ export class UsersListEntryComponent implements OnInit {
   setAddingToken(): void {
     this.addingToken = true;
   }
+
+  tokenCount(): number {
+    return this.user.tokens !== null ? this.user.tokens.length : 0;
+  }
 }
