@@ -1,14 +1,21 @@
-<div *ngIf="responseUserId !== null">
-  <div><span>User with ID </span>
-    <app-copy-text [text]="responseUserId"></app-copy-text>
-    <span> successfully created!</span></div>
-</div>
-<form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)">
-  <div>
-    <label for="name">Name</label>
-    <input id="name" type="text" formControlName="name">
-    <label for="username">Username</label>
-    <input id="username" type="text" formControlName="username">
+<!--suppress HtmlFormInputWithoutLabel -->
+<div role="main">
+  <div *ngIf="responseUserId !== null">
+    <div><span>User with ID </span>
+      <app-copy-text [text]="responseUserId"></app-copy-text>
+      <span> successfully created!</span></div>
   </div>
-  <button class="mat-primary" type="submit">Add</button>
-</form>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)" >
+    <div>
+      <mat-form-field appearance="standard">
+        <mat-label>Name</mat-label>
+        <input matInput id="name" type="text" formControlName="name" required>
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Username</mat-label>
+        <input matInput id="username" type="text" formControlName="username" placeholder="Username" required>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button type="submit">Add</button>
+  </form>
+</div>
