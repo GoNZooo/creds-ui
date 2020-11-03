@@ -2,7 +2,7 @@
 
 @include mat-core();
 
-$creds-app-primary: mat-palette($mat-indigo);
+$creds-app-primary: mat-palette($mat-light-blue);
 $creds-app-accent: mat-palette($mat-pink);
 
 $creds-app-theme: mat-dark-theme((

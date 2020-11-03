@@ -6,6 +6,16 @@ body {
   height: 100%;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #222;
+  color: #ddd;
+}
+
+a:visited {
+  color: mediumpurple;
+}
+
+a[disabled="true"] {
+  pointer-events: none;
 }
 
 [role="main"] {
