@@ -5,7 +5,7 @@
       <app-copy-text [text]="responseUserId"></app-copy-text>
       <span> successfully created!</span></div>
   </div>
-  <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)" >
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)">
     <div>
       <mat-form-field appearance="standard">
         <mat-label>Name</mat-label>
@@ -13,7 +13,8 @@
       </mat-form-field>
       <mat-form-field appearance="standard">
         <mat-label>Username</mat-label>
-        <input matInput id="username" type="text" formControlName="username" placeholder="Username" required>
+        <input matInput id="username" type="text" formControlName="username" placeholder="Username"
+               required>
       </mat-form-field>
     </div>
     <button mat-raised-button type="submit">Add</button>
