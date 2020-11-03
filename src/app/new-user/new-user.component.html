@@ -1,10 +1,5 @@
 <!--suppress HtmlFormInputWithoutLabel -->
 <div role="main">
-  <div *ngIf="responseUserId !== null">
-    <div><span>User with ID </span>
-      <app-copy-text [text]="responseUserId"></app-copy-text>
-      <span> successfully created!</span></div>
-  </div>
   <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)">
     <div>
       <mat-form-field appearance="standard">

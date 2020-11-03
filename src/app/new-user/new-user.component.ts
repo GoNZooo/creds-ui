@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { UsersService } from "../services/users.service";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { UserCreationData } from "../models/user-creation-data.model";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { Clipboard } from "@angular/cdk/clipboard";
 
 @Component({
   selector: "app-new-user",
@@ -10,9 +12,13 @@ import { UserCreationData } from "../models/user-creation-data.model";
 })
 export class NewUserComponent implements OnInit {
   userForm: FormGroup;
-  responseUserId: string | null = null;
 
-  constructor(public usersService: UsersService, private formBuilder: FormBuilder) {
+  constructor(
+    public usersService: UsersService,
+    private formBuilder: FormBuilder,
+    private snackbar: MatSnackBar,
+    private clipboard: Clipboard
+  ) {
     this.userForm = this.formBuilder.group({ name: "", username: "" });
   }
 
@@ -20,7 +26,21 @@ export class NewUserComponent implements OnInit {
 
   onSubmit(userData: UserCreationData): void {
     this.usersService.newUser(userData).subscribe((responseUserId) => {
-      this.responseUserId = responseUserId;
+      const snackbarReference = this.snackbar.open(
+        `User with ID '${responseUserId}' created!`,
+        "Copy ID",
+        {
+          duration: 5000,
+          horizontalPosition: "center",
+          verticalPosition: "top",
+        }
+      );
+
+      snackbarReference.afterDismissed().subscribe(({ dismissedByAction }) => {
+        if (dismissedByAction) {
+          this.clipboard.copy(responseUserId);
+        }
+      });
     });
     this.userForm.reset();
   }
