@@ -14,19 +14,19 @@
       Users
     </caption>
     <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Username</th>
-      <th>Tokens</th>
-      <th></th>
-      <th></th>
-    </tr>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Tokens</th>
+        <th></th>
+        <th></th>
+      </tr>
     </thead>
     <tbody>
-    <ng-container *ngFor="let user of users">
-      <tr app-user-list-entry [user]="user"></tr>
-    </ng-container>
+      <ng-container *ngFor="let user of users">
+        <tr app-user-list-entry [user]="user"></tr>
+      </ng-container>
     </tbody>
   </table>
 </div>
