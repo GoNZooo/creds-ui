@@ -1,6 +1,6 @@
 <!--suppress HtmlFormInputWithoutLabel -->
 <td>
-  <a [routerLink]="['/users', user.id]">{{ user.id }}</a>
+  <a [routerLink]="[user.id]">{{ user.id }}</a>
 </td>
 <td>{{ user.name }}</td>
 <td>{{ user.username }}</td>
@@ -9,7 +9,7 @@
     mat-flat-button
     matTooltip="{{ 'Tokens: ' + tokenCount() }}"
     [disabled]="user.tokens === null"
-    [routerLink]="['/users', user.id, 'tokens']"
+    [routerLink]="[user.id, 'tokens']"
   >
     TOKENS
   </a>
