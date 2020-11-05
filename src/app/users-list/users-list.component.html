@@ -1,11 +1,6 @@
 <div role="main">
   <div>
-    <button
-      matTooltip="Add a user"
-      mat-flat-button
-      color="primary"
-      (click)="this.router.navigate(['/users/new'])"
-    >
+    <button matTooltip="Add a user" mat-flat-button color="primary" (click)="openNewUserDialog()">
       <mat-icon>add</mat-icon>
     </button>
   </div>

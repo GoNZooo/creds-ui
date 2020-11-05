@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { UsersService } from "../services/users.service";
-import { Router } from "@angular/router";
+import { MatDialog } from "@angular/material/dialog";
+import { NewUserComponent } from "../new-user/new-user.component";
 
 @Component({
   selector: "app-users-list",
@@ -8,7 +9,13 @@ import { Router } from "@angular/router";
   styleUrls: ["./users-list.component.css"],
 })
 export class UsersListComponent implements OnInit {
-  constructor(public usersService: UsersService, public router: Router) {}
+  constructor(public usersService: UsersService, private dialog: MatDialog) {}
 
   ngOnInit(): void {}
+
+  openNewUserDialog(): void {
+    const dialogReference = this.dialog.open(NewUserComponent);
+
+    dialogReference.afterClosed().subscribe(() => {});
+  }
 }
