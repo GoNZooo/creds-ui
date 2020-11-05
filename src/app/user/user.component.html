@@ -9,10 +9,12 @@
   </thead>
   <tbody>
   <tr>
-    <td>{{user.id}}</td>
-    <td>{{user.name}}</td>
-    <td>{{user.username}}</td>
-    <td><a [routerLink]="['/users', user.id, 'tokens']">{{user.id}}</a></td>
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.username }}</td>
+    <td>
+      <a [routerLink]="['/users', user.id, 'tokens']">{{ user.id }}</a>
+    </td>
   </tr>
   </tbody>
 </table>

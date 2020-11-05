@@ -1,6 +1,8 @@
 <div role="main">
-  <table *ngIf="(usersService.tokens | async) as tokens">
-    <caption>Tokens</caption>
+  <table *ngIf="usersService.tokens | async as tokens">
+    <caption>
+      Tokens
+    </caption>
     <thead>
     <tr>
       <th>Id</th>
@@ -16,13 +18,13 @@
       <td>
         <app-copy-text [text]="token.id"></app-copy-text>
       </td>
-      <td>{{token.scope}}</td>
-      <td matTooltip="{{token.userId}}"><a [routerLink]="['/users', token.userId]">Link</a></td>
-      <td matTooltip="{{token.start | date:'yyyy-MM-dd hh:mm:ss Z'}}">
-        {{token.start | date:'dd MMM, yyyy hh:mm'}}
+      <td>{{ token.scope }}</td>
+      <td matTooltip="{{ token.userId }}"><a [routerLink]="['/users', token.userId]">Link</a></td>
+      <td matTooltip="{{ token.start | date: 'yyyy-MM-dd hh:mm:ss Z' }}">
+        {{ token.start | date: "dd MMM, yyyy hh:mm" }}
       </td>
-      <td matTooltip="{{token.end | date:'yyyy-MM-dd hh:mm:ss Z'}}">
-        {{token.end | date:'dd MMM, yyyy hh:mm'}}
+      <td matTooltip="{{ token.end | date: 'yyyy-MM-dd hh:mm:ss Z' }}">
+        {{ token.end | date: "dd MMM, yyyy hh:mm" }}
       </td>
       <td>
         <button (click)="deleteToken(token.id)" class="mat-button mat-accent">x</button>

@@ -1,30 +1,45 @@
 <!--suppress HtmlFormInputWithoutLabel -->
 <td>
-  <a [routerLink]="['/users', user.id]">{{user.id}}</a>
+  <a [routerLink]="['/users', user.id]">{{ user.id }}</a>
 </td>
-<td>{{user.name}}</td>
-<td>{{user.username}}</td>
+<td>{{ user.name }}</td>
+<td>{{ user.username }}</td>
 <td>
-  <a mat-flat-button matTooltip="{{'Tokens: ' + tokenCount()}}"
-     [disabled]="user.tokens === null"
-     [routerLink]="['/users', user.id, 'tokens']">
+  <a
+    mat-flat-button
+    matTooltip="{{ 'Tokens: ' + tokenCount() }}"
+    [disabled]="user.tokens === null"
+    [routerLink]="['/users', user.id, 'tokens']"
+  >
     TOKENS
   </a>
 </td>
 <td>
-  <button mat-mini-fab *ngIf="!addingToken"
-          matTooltip="Add a token" color="primary" aria-label="Add a token"
-          (click)="setAddingToken()">
+  <button
+    mat-mini-fab
+    *ngIf="!addingToken"
+    matTooltip="Add a token"
+    color="primary"
+    aria-label="Add a token"
+    (click)="setAddingToken()"
+  >
     <mat-icon>add</mat-icon>
   </button>
-  <form *ngIf="addingToken" [formGroup]="scopeForm"
-        (ngSubmit)="addToken(user.id)">
+  <form *ngIf="addingToken" [formGroup]="scopeForm" (ngSubmit)="addToken(user.id)">
     <mat-form-field>
       <mat-label>Scope</mat-label>
-      <input matInput autofocus id="scope" name="scope" class="form-control" type="text" required
-             formControlName="scope"
-             [pattern]="scopePattern"
-             (blur)="cancelAddingToken()">
+      <input
+        matInput
+        autofocus
+        id="scope"
+        name="scope"
+        class="form-control"
+        type="text"
+        required
+        formControlName="scope"
+        [pattern]="scopePattern"
+        (blur)="cancelAddingToken()"
+      />
       <div class="mat-error mat-small" *ngIf="!scopeForm.valid">
         Scope is required and cannot contain spaces
       </div>
@@ -33,10 +48,13 @@
   </form>
 </td>
 <td>
-  <button mat-mini-fab color="warn"
-          matTooltip="Delete user"
-          aria-label="Delete user"
-          (click)="maybeDeleteUser(user)">
+  <button
+    mat-mini-fab
+    color="warn"
+    matTooltip="Delete user"
+    aria-label="Delete user"
+    (click)="maybeDeleteUser(user)"
+  >
     <mat-icon>delete</mat-icon>
   </button>
 </td>

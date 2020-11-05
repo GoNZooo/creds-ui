@@ -1,12 +1,18 @@
 <div role="main">
   <div>
-    <button matTooltip="Add a user" mat-flat-button color="primary"
-            (click)="this.router.navigate(['/users/new'])">
+    <button
+      matTooltip="Add a user"
+      mat-flat-button
+      color="primary"
+      (click)="this.router.navigate(['/users/new'])"
+    >
       <mat-icon>add</mat-icon>
     </button>
   </div>
-  <table *ngIf="(usersService.users | async) as users">
-    <caption>Users</caption>
+  <table *ngIf="usersService.users | async as users">
+    <caption>
+      Users
+    </caption>
     <thead>
     <tr>
       <th>ID</th>

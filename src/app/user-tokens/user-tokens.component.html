@@ -1,5 +1,7 @@
 <table *ngIf="tokens !== null">
-  <caption>Tokens</caption>
+  <caption>
+    Tokens
+  </caption>
   <thead>
   <tr>
     <th>Id</th>
@@ -10,9 +12,9 @@
 
   <tbody>
   <tr *ngFor="let token of tokens">
-    <td>{{token.id}}</td>
-    <td>{{token.scope}}</td>
-    <td>{{token.userId}}</td>
+    <td>{{ token.id }}</td>
+    <td>{{ token.scope }}</td>
+    <td>{{ token.userId }}</td>
   </tr>
   </tbody>
 </table>
