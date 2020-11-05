@@ -5,9 +5,10 @@ import { UserComponent } from "./user/user.component";
 import { UserTokensComponent } from "./user-tokens/user-tokens.component";
 import { TokensListComponent } from "./tokens-list/tokens-list.component";
 import { NewUserComponent } from "./new-user/new-user.component";
+import { HomeComponent } from "./home/home.component";
 
 const routes: Route[] = [
-  { path: "", children: [] },
+  { path: "", component: HomeComponent },
   { path: "users", component: UsersListComponent },
   { path: "users/new", component: NewUserComponent },
   { path: "users/:id", component: UserComponent },

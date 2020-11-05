@@ -19,6 +19,7 @@ import { CommonModule } from "@angular/common";
 import { ClipboardModule } from "@angular/cdk/clipboard";
 import { DeleteUserConfirmationComponent } from "./delete-user-confirmation/delete-user-confirmation.component";
 import { MaterialModule } from "./material/material.module";
+import { HomeComponent } from "./home/home.component";
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MaterialModule } from "./material/material.module";
     NewUserComponent,
     CopyTextComponent,
     DeleteUserConfirmationComponent,
+    HomeComponent,
   ],
   imports: [
     CommonModule,
